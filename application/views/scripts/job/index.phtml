@@ -1,0 +1,194 @@
+<?php if ($this->errors) :?>
+<div class="initform" id="initform">
+	<legend>Autenticação</legend>
+<?=$this->form->render();?>
+</div>
+<?php else: ?>
+
+<div class="container-fluid white trace">
+	<div class="row-fluid">
+		<div class="col-md-12">
+
+			<div class="col-md-5">
+				<h4>Obra Nº<?=$this->optimus[0]['j_number']?> - <?=utf8_encode(ucwords(strtolower($this->optimus[0]['j_customer'])))?></h4>
+				<h5><?=utf8_encode(ucwords(strtolower($this->optimus[0]['j_title1'])))?> <?=utf8_encode(ucwords(strtolower($this->optimus[0]['j_title2'])))?></h5>
+				<br /><br />
+			</div>
+			<div class="col-md-7">
+dsf
+			</div>
+
+		<div class="col-md-5">
+<form action="/job/process" method="post" enctype="application/x-www-form-urlencoded">
+		<?=$this->form->getElement('obra')->setDecorators(array('ViewHelper'))->setValue($this->optimus[0]['j_number']);?>
+		<?=$this->form->getElement('cliente')->setDecorators(array('ViewHelper'))->setValue(utf8_encode(ucwords(strtolower($this->optimus[0]['j_customer']))));?>
+		<?=$this->form->getElement('trabalho')->setDecorators(array('ViewHelper'))->setValue(utf8_encode(ucwords(strtolower($this->optimus[0]['j_title1']))) ." " . utf8_encode(ucwords(strtolower($this->optimus[0]['j_title2']))));?>
+    		<table class="table table-striped table-condensed">
+        		<tr>
+        		    <th colspan="5"><i class="fa fa-user sp_right_5"></i>Cliente - Ficheiro Recebido</th>
+        		</tr>
+        		<tr>
+        		    <td>Ficheiro Cliente:</td><td><?=$this->form->getElement('ficheirocliente')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("ficheirocliente_date")');?></td>
+        		    <td>Data:</td><td><?=$this->form->getElement('ficheirocliente_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("ficheirocliente_date")'></i><td>
+        		</tr>
+        		
+        		<tr>
+        		    <td>Ficheiro Completo:</td>
+        		    <td><?=$this->form->getElement('ficheiroclientetotal')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("ficheiroclientetotal_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('ficheiroclientetotal_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("ficheiroclientetotal_date")'></i></td>
+        		<td></td>
+		        </tr>
+        		<tr>
+        		    <td colspan="5">
+        		    DVD / Pen <?=$this->form->getElement('cd')->setDecorators(array('ViewHelper'));?>&nbsp;&nbsp;&nbsp;
+        		    Email <?=$this->form->getElement('mail')->setDecorators(array('ViewHelper'));?>&nbsp;&nbsp;&nbsp;
+        		    Ftp <?=$this->form->getElement('ftp')->setDecorators(array('ViewHelper'));?>&nbsp;&nbsp;&nbsp;
+        		    Web <small>(Dropbox,etc)</small><?=$this->form->getElement('web')->setDecorators(array('ViewHelper'));?>&nbsp;&nbsp;&nbsp;
+        		    Reedição <?=$this->form->getElement('reedicao')->setDecorators(array('ViewHelper'));?>
+        		    </td>
+        		</tr>    
+    		</table>
+		</div>
+			<div class="col-md-5">
+
+			</div>
+		
+		<div class="col-md-11">
+		    <table class="table table-striped table-condensed">
+        		<tr>
+        		    <th colspan="10"><i class="fa fa-print sp_right_5"></i>Ozalides</th>
+        		</tr>
+        		<tr>
+        		    <td>1ª Prova:</td>
+        		    <td><?=$this->form->getElement('1prova')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("1prova_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('1prova_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("1prova_date")'></i></td>
+        		    <td>2ª Prova:</td>
+        		    <td><?=$this->form->getElement('2prova')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("2prova_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('2prova_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("2prova_date")'></i></td>
+        		</tr>
+        		<tr>
+        		    <td>3ª Prova:</td>
+        		    <td><?=$this->form->getElement('3prova')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("3prova_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('3prova_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("3prova_date")'></i></td>
+        		    <td>4ª Prova:</td>
+        		    <td><?=$this->form->getElement('4prova')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("4prova_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('4prova_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("4prova_date")'></i></td>
+        		</tr>
+        		<tr>
+        		    <td>5ª Prova:</td>
+        		    <td><?=$this->form->getElement('5prova')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("5prova_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('5prova_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("5prova_date")'></i></td>
+        		    <td>6ª Prova:</td>
+        		    <td><?=$this->form->getElement('6prova')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("6prova_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('6prova_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("6prova_date")'></i></td>
+        		</tr>
+            </table>
+        		
+		</div>
+		
+		<div class="col-md-11">
+		    <table class="table table-striped table-condensed">
+        		<tr>
+        		    <th colspan="10"><i class="fa fa-edit sp_right_5"></i>Emendas</th>
+        		</tr>
+        		<tr>
+        		    <td>1ª Emendas:</td>
+        		    <td><?=$this->form->getElement('1Emendas')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("1Emendas_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('1Emendas_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("1Emendas_date")'></i></td>
+        		    <td>2ª Emendas:</td>
+        		    <td><?=$this->form->getElement('2Emendas')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("2Emendas_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('2Emendas_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("2Emendas_date")'></i></td>
+        		</tr>
+        		<tr>
+        		    <td>3ª Emendas:</td>
+        		    <td><?=$this->form->getElement('3Emendas')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("3Emendas_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('3Emendas_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("3Emendas_date")'></i></td>
+        		    <td>4ª Emendas:</td>
+        		    <td><?=$this->form->getElement('4Emendas')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("4Emendas_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('4Emendas_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("4Emendas_date")'></i></td>
+        		</tr>
+        		<tr>
+        		    <td>5ª Emendas:</td>
+        		    <td><?=$this->form->getElement('5Emendas')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("5Emendas_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('5Emendas_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("5Emendas_date")'></i></td>
+        		    <td>6ª Emendas:</td>
+        		    <td><?=$this->form->getElement('6Emendas')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("6Emendas_date")');?></td>
+        		    <td>Data: </td>
+        		    <td><?=$this->form->getElement('6Emendas_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("6Emendas_date")'></i></td>
+        		</tr>
+            </table>
+        		
+		</div>
+		
+		<div class="col-md-2"></div>
+		<div class="col-md-7">
+    		<table class="table table-striped table-condensed">
+        		<tr>
+        		    <th colspan="5"><i class="fa fa-user sp_right_5"></i>Cliente - Ficheiro Aprovado</th>
+        		</tr>
+        		<tr>
+        		    <td>Ficheiro Aprovado:</td><td><?=$this->form->getElement('aprovadocliente')->setDecorators(array('ViewHelper'))->setAttrib('onclick', 'setDate("aprovadocliente_date")');?></td>
+        		    <td>Data:</td><td><?=$this->form->getElement('aprovadocliente_date')->setDecorators(array('ViewHelper'));?><i class="fa fa-remove" style="cursor:pointer;" onclick='cleanVal("aprovadocliente_date")'></i><td>
+        		</tr>
+        		<tr>
+        		    <td>Ozalide:</td><td><?=$this->form->getElement('aprovado_ozalide')->setDecorators(array('ViewHelper'));?></td>
+        		    <td>Mail:</td><td><?=$this->form->getElement('aprovado_mail')->setDecorators(array('ViewHelper'));?><td>
+        		</tr>
+    		</table>
+    		<div class="center"><?=$this->form->getElement('submit')->setDecorators(array('ViewHelper'));?></div>
+		</div>
+</form>
+		
+		<div class="col-md-11">
+		<h4>Chapas</h4>
+		<?php if (count($this->chapas > 0 )):?>
+		
+		    <table class="table table-striped table-condensed">
+        		<tr>
+        		    <th><i class="fa fa-align-justify sp_right_5"></i>Quant.</th>
+        		    <th><i class="fa fa-user sp_right_5"></i>Operador</th>
+        		    <th><i class="fa fa-calendar sp_right_5"></i>Data</th>
+        		    <th><i class="fa fa-pencil sp_right_5"></i>Obs.</th>
+        		</tr>
+        <?php foreach ($this->chapas as $chapa):?>		
+        		<tr>
+        		    <td><?=$chapa['qtd']?></td>
+        		    <td><?=$chapa['operador']?></td>
+        		    <td><?=$chapa['date']?> - <?=$chapa['time']?></td>
+        		    <td><?=$chapa['obs']?></td>
+        		</tr>
+       <?php endforeach;?> 		
+        	</table>	
+		
+		
+		
+		
+		<?php else:?>
+		<h6>O trabalho ainda não tem chapas.</h6>
+		
+		<?php endif;?>
+		
+		</div>
+		
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<?php endif;?>

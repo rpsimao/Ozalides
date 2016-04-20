@@ -1,0 +1,31 @@
+<?php if (count($this->messages) > 0): ?>
+<?php if ($this->messages[0] == "error"): ?>
+<?=$this->Flashinfo('error', $this->messages[1]);?>
+<?php elseif ($this->messages[0] == "success"):?>
+<?=$this->Flashinfo('success', $this->messages[1]);?>
+<?php else:?>
+<?=$this->Flashinfo('info', $this->messages[1]);?>
+<?php endif;?>
+<?php endif;?>
+
+
+<?php if ($this->records > 0): ?>
+
+<div class="container-fluid mywhite trace">
+	<div class="row-fluid">
+		<div class="span12 ">
+		<h2>Listagem Trabalhos</h2>
+		<table class="table table-striped txtsmall top-20">
+				<tr>
+					<th><i class="fa fa-list-alt"></i> Bol. Nº</th>
+					<th><i class="fa fa-user"></i> Cliente</th>
+					<th><i class="fa fa-cube"></i> Produto</th>
+					<th><i class="fa fa-trash"></i> Apagar </th>
+				</tr>
+		    <?php echo $this->partialLoop('partials/jobs.phtml', $this->records) ?>
+		</table>
+		</div>
+	</div>
+</div>
+
+<?php endif;?>
